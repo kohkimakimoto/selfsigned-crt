@@ -139,12 +139,12 @@ fi
 
 for domain in "${params[@]}"
 do
-    echo "${txtgreen}${txtbold}Creating certificate: ${txtyellow}$domain${txtreset}"
+    echo "${txtgreen}${txtbold}Creating certificate for ${txtyellow}$domain${txtreset}"
 
-    echo "Creating KEY: ${txtbold}${domain}-selfsigned.key${txtreset}"
+    echo "Creating KEY: ${txtbold}${txtyellow}${domain}-selfsigned.key${txtreset}"
     openssl genrsa -out ${domain}-selfsigned.key 2048
 
-    echo "Creating CSR: ${txtbold}${domain}-selfsigned.csr${txtreset}"
+    echo "Creating CSR: ${txtbold}${txtyellow}${domain}-selfsigned.csr${txtreset}"
     openssl req -new -key ${domain}-selfsigned.key -out ${domain}-selfsigned.csr -subj "/CN=${domain}"
 
     tmpfile=$(mktemp -t prefix.XXXXXXXX)
@@ -161,10 +161,10 @@ subjectAltName = @alt_names
 DNS.1 = ${domain}
 EOF
 
-    echo "Creating CRT: ${txtbold}${domain}-selfsigned.csr${txtreset}"
+    echo "Creating CRT: ${txtbold}${txtyellow}${domain}-selfsigned.crt${txtreset}"
     openssl x509 -req -days 36500 -in ${domain}-selfsigned.csr -signkey ${domain}-selfsigned.key -out ${domain}-selfsigned.crt -sha256 -extfile ${tmpfile}
 
-    echo "Removing extfile: ${txtbold}$tmpfile${txtreset}"
+    echo "Removing extfile: $tmpfile"
     rm -f $tmpfile
 done
 
