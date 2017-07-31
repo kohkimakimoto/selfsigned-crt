@@ -10,9 +10,9 @@ Usage: selfsigned-crt <domain...>
 Generate self-signed SSL certificate.
 
 Options:
-    -h        Show help.
-    -v        Print version.
-    -o DIR    Specify the output directory.
+  -h        Show help.
+  -v        Print version.
+  -o DIR    Specify the output directory.
 
 Example:
   selfsigned-crt foo.bar.10.0.0.1.xip.io
