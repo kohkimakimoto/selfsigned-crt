@@ -19,8 +19,8 @@ Example:
   selfsigned-crt hoge.10.0.0.1.xip.io foo.bar.10.0.0.1.xip.io
 
 Description:
-    Copyright (c) Kohki Makimoto <kohki.makimoto@gmail.com>
-    The MIT License (MIT)
+  Copyright (c) Kohki Makimoto <kohki.makimoto@gmail.com>
+  The MIT License (MIT)
 ```
 
 ## Author
